@@ -1,4 +1,6 @@
-var Pusher = require('pusher');
+var Pusher 		= require('pusher');
+var http 		= require('http');
+var socketId 	= null;
 
 var pusher = new Pusher({
   appId: '62545',
@@ -6,4 +8,14 @@ var pusher = new Pusher({
   secret: '9e35216cedc6623651dc'
 });
 
-pusher.trigger('my-channel', 'my-event', {"message": "hello world"});
+http.createServer(function (req, res) {
+    console.log('request received');
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('_testcb(\'{"message": "Hello world from Heroku!"}\')');
+}).listen(8124);
+
+pusher.connection.bind('connected', function() {
+    socketId = pusher.connection.socket_id;
+});
+
+pusher.trigger('my-channel', 'my-event', {"message": "Hello world from Pusher!"});
