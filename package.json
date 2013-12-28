@@ -1,0 +1,25 @@
+{
+  "name": "lager_server",
+  "version": "0.0.0",
+  "description": "lager_server ============",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leconcepteur/lager_server.git"
+  },
+  "author": "jonathan-dube",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leconcepteur/lager_server/issues"
+  },
+  "homepage": "https://github.com/leconcepteur/lager_server",
+  "dependencies": {
+    "pusher": "~0.1.3"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
